@@ -1,13 +1,19 @@
 import 'package:ecommerce_app_huma_volve/core/network%20services/network_services.dart';
-import 'package:ecommerce_app_huma_volve/features/home/cubit/home_cubit.dart';
-import 'package:ecommerce_app_huma_volve/features/home/model/home_service/home_service.dart';
+import 'package:ecommerce_app_huma_volve/core/theme.dart';
+import 'package:ecommerce_app_huma_volve/features/cart/screens/cart_screen.dart';
+import 'package:ecommerce_app_huma_volve/features/home/data/datasource/home_data_source.dart';
+import 'package:ecommerce_app_huma_volve/features/home/data/datasource/home_data_source_imp.dart';
+import 'package:ecommerce_app_huma_volve/features/home/data/repository/home_repo_imp.dart';
+import 'package:ecommerce_app_huma_volve/features/home/domain/repository/home_repo.dart';
+import 'package:ecommerce_app_huma_volve/features/home/domain/usecase/categories_use_case.dart';
+import 'package:ecommerce_app_huma_volve/features/home/domain/usecase/products_use_case.dart';
+import 'package:ecommerce_app_huma_volve/features/home/presentation/cubit/home_cubit.dart';
+import 'package:ecommerce_app_huma_volve/features/home/presentation/pages/home_screen.dart';
+import 'package:ecommerce_app_huma_volve/features/profile/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/theme.dart';
-import '../../home/screens/home_screen.dart';
-import '../../cart/screens/cart_screen.dart';
-import '../../profile/screens/profile_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -19,7 +25,10 @@ class MainNavigationScreen extends StatefulWidget {
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
   int _currentIndex = 0;
   late final NetworkServices networkServices;
-  late final HomeService homeService;
+  late final HomeDataSource homeDataSource;
+  late final HomeRepo homeRepo;
+  late final CategoriesUseCase categoriesUseCase;
+  late final ProductsUseCase productsUseCase;
   late final HomeCubit homeCubit;
 
   @override
@@ -27,9 +36,13 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     super.initState();
 
     networkServices = NetworkServices();
-    homeService = HomeService(networkServices: networkServices);
-    homeCubit = HomeCubit(homeService: homeService);
+    homeDataSource = HomeDataSourceImp(networkServices);
+    homeRepo = HomeRepoImp(homeDataSource);
+    categoriesUseCase = CategoriesUseCase(homeRepo);
+    productsUseCase = ProductsUseCase(homeRepo);
+    homeCubit = HomeCubit(categoriesUseCase, productsUseCase);
   }
+
   @override
   void dispose() {
     homeCubit.close();
