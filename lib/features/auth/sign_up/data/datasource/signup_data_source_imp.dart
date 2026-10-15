@@ -18,7 +18,7 @@ class SignupDataSourceImp implements SignupDataSource {
         'name': signupReqModel.name,
         'email': signupReqModel.email,
         'password': signupReqModel.password,
-        "avatar": "https://www.google.com/imgres?q=photo&imgurl=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fthumbnails%2F055%2F621%2F001%2Fsmall%2Fcloseup-portrait-of-a-young-woman-with-freckles-and-snow-on-her-face-surrounded-by-pine-branches-photo.jpg&imgrefurl=https%3A%2F%2Fwww.vecteezy.com%2Ffree-photos%2Fbeautiful-pic&docid=z4xxRVlB80IVyM&tbnid=Rv6S49eWvBa-nM&vet=12ahUKEwjaj6HE77GXAxW8XEEAHXiXE5cQnPAOegQIRRAA..i&w=465&h=350&hcb=2&ved=2ahUKEwjaj6HE77GXAxW8XEEAHXiXE5cQnPAOegQIRRAA",
+        "avatar": "https://www.google.com/imgres?q=rabbit%20cartoon&imgurl=https%3A%2F%2Fpng.pngtree.com%2Fpng-vector%2F20240413%2Fourmid%2Fpngtree-cartoon-rabbit-eating-icon-image-png-image_12285856.png&imgrefurl=https%3A%2F%2Fpngtree.com%2Fso%2Frabbit-cartoon-image&docid=-dj1ArcI2b9jbM&tbnid=7ge6RK1evgFGHM&vet=12ahUKEwih3ZH9gL2XAxUN_rsIHYZ_KKkQnPAOegQIORAA..i&w=360&h=360&hcb=2&ved=2ahUKEwih3ZH9gL2XAxUN_rsIHYZ_KKkQnPAOegQIORAA",
       },
     );
     final jsonResponse = response.data;
