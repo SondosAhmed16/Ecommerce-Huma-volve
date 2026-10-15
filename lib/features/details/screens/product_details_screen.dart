@@ -1,12 +1,10 @@
-import 'package:ecommerce_app_huma_volve/features/details/widgets/color_selector.dart';
-import 'package:ecommerce_app_huma_volve/features/details/widgets/size_selector.dart';
-import 'package:ecommerce_app_huma_volve/features/home/model/Products_model.dart';
+import 'package:ecommerce_app_huma_volve/features/home/domain/entity/products_entity.dart';
 import 'package:flutter/material.dart';
 import '../../../core/theme.dart';
 import '../../../core/widgets/primary_button.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
-  final ProductsModel product;
+  final ProductsEntity product;
 
   const ProductDetailsScreen({super.key, required this.product});
 
@@ -15,15 +13,15 @@ class ProductDetailsScreen extends StatefulWidget {
 }
 
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
-  late Color _selectedColor;
-  late String _selectedSize;
+  // late Color _selectedColor;
+  // late String _selectedSize;
 
-  @override
-  void initState() {
-    super.initState();
-    // _selectedColor = widget.product.colors.first;
-    // _selectedSize = widget.product.sizes.first;
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _selectedColor = widget.product.colors.first;
+  //   _selectedSize = widget.product.sizes.first;
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +119,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     ),
                     const SizedBox(height: 12),
                     // ColorSelector(
-                    //   colors: widget.product,
+                    //   colors: widget.product.,
                     //   selectedColor: _selectedColor,
                     //   onColorSelected: (color) {
                     //     setState(() {
@@ -137,7 +135,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     ),
                     const SizedBox(height: 12),
                     // SizeSelector(
-                    //   sizes: widget.product.,
+                    //   sizes: widget.product.sizes,
                     //   selectedSize: _selectedSize,
                     //   onSizeSelected: (size) {
                     //     setState(() {
