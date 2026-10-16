@@ -1,3 +1,4 @@
+import 'package:ecommerce_app_huma_volve/features/details/widgets/share_product_button.dart';
 import 'package:ecommerce_app_huma_volve/features/home/domain/entity/products_entity.dart';
 import 'package:flutter/material.dart';
 import '../../../core/theme.dart';
@@ -57,6 +58,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 onPressed: () {},
               ),
               const SizedBox(width: 8),
+               ShareProductButton(productId: widget.product.id.toString()),
             ],
             flexibleSpace: FlexibleSpaceBar(
               background: Hero(

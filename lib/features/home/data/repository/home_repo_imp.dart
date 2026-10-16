@@ -47,4 +47,16 @@ class HomeRepoImp implements HomeRepo {
       );
     }
   }
+
+  @override
+  Future<Either<Failure, ProductsEntity>> getProductById(int productId) async {
+    try {
+      final product = await homeDataSource.getProductById(productId);
+      return Right(product);
+    } catch (e) {
+      return Left(
+        Failure(message: "An unexpected error occurred: ${e.toString()}"),
+      );
+    }
+  }
 }

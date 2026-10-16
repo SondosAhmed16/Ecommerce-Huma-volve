@@ -40,6 +40,8 @@ dependencies:
   flutter_bloc:
   flutter_secure_storage:
   dart_either:
+  share_plus: ^10.1.4
+  go_router: ^18.1.0
 
 dev_dependencies:
   flutter_test:

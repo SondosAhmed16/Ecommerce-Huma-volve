@@ -36,4 +36,12 @@ class HomeDataSourceImp implements HomeDataSource {
         .toList();
     return products;
   }
+
+   @override
+  Future<ProductsModel> getProductById(int productId) async {
+    final response = await networkServices.dio.get(
+      '${ApiAndpoints.products}/$productId',
+    );
+    return ProductsModel.fromJson(response.data);
+  }
 }
