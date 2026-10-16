@@ -1,4 +1,3 @@
-
 import 'package:dart_either/dart_either.dart';
 import 'package:dio/dio.dart';
 import 'package:ecommerce_app_huma_volve/core/error/error_handel.dart';
@@ -29,10 +28,16 @@ class HomeRepoImp implements HomeRepo {
 
   @override
   Future<Either<Failure, List<ProductsEntity>>> getProducts(
-    num? categoryId,
-  ) async {
+    num? categoryId, {
+    required int limit,
+    required int offset,
+  }) async {
     try {
-      final products = await homeDataSource.getProducts(categoryId);
+      final products = await homeDataSource.getProducts(
+        categoryId,
+        limit: limit,
+        offset: offset,
+      );
       return Right(products);
     } on DioException catch (e) {
       return Left(ErrorHandel.handleError(e));
